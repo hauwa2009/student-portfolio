@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f4eb;
+            color: #182b49;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #00000015;
+        }
+
+        h1 {
+            text-align: center;
+            color: #182b49;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .option {
+            display: inline-block;
+            width: auto;
+            margin-right: 6px;
+        }
+
+        button {
+            background-color: #182b49;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c5a45d;
+            color: #182b49;
+        }
+
+        a {
+            color: #182b49;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Student Registration Form</h1>
+    <p>Please fill in your information below.</p>
+
+    <form id="registrationForm">
+
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname"
+               placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email"
+               placeholder="Enter your email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"
+               placeholder="At least 6 characters"
+               minlength="6" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone"
+               placeholder="Enter your phone number"
+               maxlength="11" required>
+
+        <label>Gender</label>
+        <input class="option" type="radio" id="male"
+               name="gender" value="Male" required>
+        <label for="male" style="display:inline;">Male</label>
+
+        <input class="option" type="radio" id="female"
+               name="gender" value="Female">
+        <label for="female" style="display:inline;">Female</label>
+
+        <label for="education">Education Level</label>
+        <select id="education" name="education" required>
+            <option value="">Select your level</option>
+            <option>Secondary School</option>
+            <option>Undergraduate</option>
+            <option>Graduate</option>
+            <option>Postgraduate</option>
+        </select>
+
+        <label for="course">Course of Study</label>
+        <input type="text" id="course" name="course"
+               placeholder="e.g. Software Engineering" required>
+
+        <label for="skills">Skills</label>
+        <select id="skills" name="skills">
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+            <option>Python</option>
+            <option>Other</option>
+        </select>
+
+        <label for="address">Home Address</label>
+        <textarea id="address" name="address"
+                  rows="3" placeholder="Enter your address"
+                  required></textarea>
+
+        <button type="submit">Register</button>
+        <button type="reset">Clear Form</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <p><a href="projects.html">Back to My Projects</a></p>
+</div>
+
+<script>
+    const form = document.getElementById("registrationForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        message.textContent =
+            "Registration form submitted successfully!";
+        message.style.color = "green";
+
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
